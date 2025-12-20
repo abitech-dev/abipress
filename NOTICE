@@ -1,0 +1,26 @@
+Squoosh - Versión Modificada
+
+Este software está basado en Squoosh de Google Chrome Labs
+Proyecto original: https://github.com/GoogleChromeLabs/squoosh
+
+Copyright 2018 Google Inc.
+
+Licenciado bajo la Licencia Apache, Versión 2.0 (la "Licencia");
+no puede usar este archivo excepto en cumplimiento con la Licencia.
+Puede obtener una copia de la Licencia en
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+A menos que lo requiera la ley aplicable o se acuerde por escrito, el software
+distribuido bajo la Licencia se distribuye "TAL CUAL",
+SIN GARANTÍAS O CONDICIONES DE NINGÚN TIPO, ya sean expresas o implícitas.
+Consulte la Licencia para el idioma específico que rige los permisos y
+limitaciones bajo la Licencia.
+
+---
+
+MODIFICACIONES:
+Esta es una versión modificada del proyecto original Squoosh.
+Todas las modificaciones también están licenciadas bajo la Licencia Apache 2.0.
+
+Para una lista de cambios, consulte el historial de commits de git.

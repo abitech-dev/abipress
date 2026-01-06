@@ -19,6 +19,7 @@ import * as style from './style.css';
 import type SnackBarElement from 'shared/custom-els/snack-bar';
 import 'shared/custom-els/snack-bar';
 import { startBlobs } from './blob-anim/meta';
+import { validateFile, filterValidFiles } from 'shared/fileValidation';
 import SlideOnScroll from './SlideOnScroll';
 
 const demos = [
@@ -71,6 +72,7 @@ async function getImageClipboardItem(
 
 interface Props {
   onFile?: (file: File) => void;
+  onFiles?: (files: File[]) => void;
   showSnack?: SnackBarElement['showSnackbar'];
 }
 interface State {
@@ -119,10 +121,25 @@ export default class Intro extends Component<Props, State> {
 
   private onFileChange = (event: Event): void => {
     const fileInput = event.target as HTMLInputElement;
-    const file = fileInput.files && fileInput.files[0];
-    if (!file) return;
+    const files = fileInput.files;
+    if (!files || files.length === 0) return;
+
+    // Validar tipo y tamaño en el punto de entrada usando helper compartido
+    const filesArray = Array.from(files);
+    const { accepted, rejected } = filterValidFiles(filesArray);
+
+    for (const r of rejected) {
+      this.props.showSnack?.(`${r.file.name}: ${r.reason}`);
+    }
+
     this.fileInput!.value = '';
-    this.props.onFile!(file);
+    if (accepted.length === 0) return;
+
+    if (accepted.length > 1) {
+      if (this.props.onFiles) this.props.onFiles(accepted);
+    } else {
+      if (this.props.onFile) this.props.onFile(accepted[0]);
+    }
   };
 
   private onOpenClick = () => {
@@ -135,6 +152,13 @@ export default class Intro extends Component<Props, State> {
       const demo = demos[index];
       const blob = await fetch(demo.url).then((r) => r.blob());
       const file = new File([blob], demo.filename, { type: blob.type });
+      const v = validateFile(file);
+      if (!v.valid) {
+        this.props.showSnack!(`${file.name}: ${v.reason}`);
+        this.setState({ fetchingDemoIndex: undefined });
+        return;
+      }
+
       this.props.onFile!(file);
     } catch (err) {
       this.setState({ fetchingDemoIndex: undefined });
@@ -218,7 +242,15 @@ export default class Intro extends Component<Props, State> {
       return;
     }
 
-    this.props.onFile!(new File([blob], 'image.unknown'));
+    const file = new File([blob], 'image.unknown', { type: blob.type });
+
+    const v = validateFile(file);
+    if (!v.valid) {
+      this.props.showSnack!(`${file.name}: ${v.reason}`);
+      return;
+    }
+
+    this.props.onFile!(file);
   };
 
   render(
@@ -231,6 +263,7 @@ export default class Intro extends Component<Props, State> {
           class={style.hide}
           ref={linkRef(this, 'fileInput')}
           type="file"
+          multiple
           onChange={this.onFileChange}
         />
         <div class={style.main}>

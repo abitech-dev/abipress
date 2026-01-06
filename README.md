@@ -1,25 +1,42 @@
-# [Squoosh]!
+# [Abipress]!
 
-[Squoosh] es una aplicación web de compresión de imágenes que reduce el tamaño de las imágenes a través de numerosos formatos.
+[Abipress] es una aplicación web de compresión de imágenes que reduce el tamaño de las imágenes a través de numerosos formatos.
 
-## Atribución
+## Características principales
 
-Este proyecto es una versión modificada de [Squoosh](https://github.com/GoogleChromeLabs/squoosh) por Google Chrome Labs, bajo la licencia Apache 2.0.
+- **Fácil compresión**: Reduce el tamaño de tus imágenes en segundos, manteniendo la calidad.
+- **Privacidad total**: Todo se procesa en tu dispositivo, sin subir archivos a internet.
+- **Interfaz simple**: Compara la imagen original y comprimida lado a lado.
+- **Procesamiento en lote**: Comprime varias imágenes a la vez.
+- **App instalable**: Úsala offline como app web en tu teléfono o PC.
+- **Formatos avanzados**: Soporte para JPEG, PNG, WebP, AVIF y más para mejores resultados.
+- **Personalización**: Ajusta límites de tamaño y configura el sitio según tus necesidades.
 
-# Privacidad
+## Privacidad
 
-Squoosh no envía tu imagen a un servidor. Todo el proceso de compresión de imágenes se realiza localmente.
+Abipress no envía tu imagen a un servidor. Todo el proceso de compresión de imágenes se realiza localmente.
 
-Sin embargo, Squoosh utiliza Google Analytics para recopilar lo siguiente:
+Sin embargo, Abipress utiliza Google Analytics para recopilar lo siguiente:
 
-- [Datos básicos de visitantes](https://support.google.com/analytics/answer/6004245?ref_topic=2919631).
+- [Datos básicos de visitantes](https://support.google.com/analytics/answer/6004245ref_topic=2919631).
 - El valor del tamaño de la imagen antes y después.
-- Si es Squoosh PWA, el tipo de instalación de Squoosh.
-- Si es Squoosh PWA, la hora y fecha de instalación.
+- Si es Abipress PWA, el tipo de instalación de Abipress.
+- Si es Abipress PWA, la hora y fecha de instalación.
 
-# Desarrollo
+## Requisitos
 
-Para desarrollar en Squoosh:
+Para desarrollar y ejecutar Abipress, necesitas:
+
+- **Node.js**: Versión 16 o superior (recomendado 18+).
+- **npm**: Incluido con Node.js, versión 7+.
+- **Git**: Para clonar el repositorio y manejo de versiones.
+- **Sistema operativo**: Windows, macOS o Linux.
+
+Asegúrate de tener estas herramientas instaladas antes de continuar.
+
+## Desarrollo
+
+Para desarrollar en Abipress:
 
 1. Clona el repositorio
 1. Para instalar los paquetes de node, ejecuta:
@@ -35,14 +52,14 @@ Para desarrollar en Squoosh:
    npm run dev
    ```
 
-# Contribuir
+## Contribuir
 
-Squoosh es un proyecto de código abierto que aprecia toda la participación de la comunidad. Para contribuir al proyecto, sigue la [guía de contribución](/CONTRIBUTING.md).
+Abipress es un proyecto de código abierto que aprecia toda la participación de la comunidad. Para contribuir al proyecto, sigue la [guía de contribución](/CONTRIBUTING.md).
 
-# Licencia
+## Licencia
 
 Este proyecto está licenciado bajo la Licencia Apache 2.0 - consulta el archivo [LICENSE](LICENSE) para más detalles.
 
 Basado en el proyecto original [Squoosh](https://github.com/GoogleChromeLabs/squoosh) de Google Chrome Labs.
 
-[squoosh]: https://squoosh.app
+[abipress]: https://abipress.abitech.com.pe
